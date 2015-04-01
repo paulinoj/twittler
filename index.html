@@ -3,6 +3,8 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src="moment.js"></script>
+    <link rel="stylesheet" type="text/css" href="twittler.css">
   </head>
   <body>
     <script>
@@ -15,9 +17,33 @@
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
+          $tweet.text(': ' + tweet.message);
+          $tweet.addClass("tweet");
+
+          var $user = $('<span></span>');
+          $user.text('@' + tweet.user);
+          $user.addClass("user");
+          $user.attr("data-user", tweet.user);
+          $tweet.prepend($user);
           $tweet.appendTo($body);
+
+
+          var $date = $('<p></p>');
+          var date = moment(tweet.created_at);
+          $date.text(date.format('MMM Do YYYY, h:mm:ss a'));
+          $date.appendTo($tweet);
+
+          var $when = $('<p></p>');
+          $when.text(date.fromNow());
+          $when.appendTo($tweet);
+
           index -= 1;
+
+
+
+
+
+
         }
 
       });
