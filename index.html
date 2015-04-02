@@ -4,14 +4,16 @@
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
     <script src="moment.js"></script>
+    <script src="pop-up.js"></script>   
     <link rel="stylesheet" type="text/css" href="twittler.css">
+    <link rel="stylesheet" type="text/css" href="pop-up.css">   
   </head>
   <body>
     <script>
 
       $(document).ready(function(){
         var $body = $('body');
-        $body.html('');
+//        $body.html('');
 
 
         var lastIndex;
@@ -64,5 +66,61 @@
       });
 
     </script>
+
+
+    <h3>JQuery Popup Dialogs</h3>
+        
+    <input type="button" id="btnShowSimple" value="Simple Dialog" />
+    <input type="button" id="btnShowModal" value="Modal Dialog" />
+        
+    <br /><br />       
+        
+    <div id="output"></div>
+        
+    <div id="overlay" class="web_dialog_overlay"></div>
+        
+    <div id="dialog" class="web_dialog">
+       <table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
+          <tr>
+             <td class="web_dialog_title">Online Survey</td>
+             <td class="web_dialog_title align_right">
+                <a href="#" id="btnClose">Close</a>
+             </td>
+          </tr>
+          <tr>
+             <td>&nbsp;</td>
+             <td>&nbsp;</td>
+          </tr>
+          <tr>
+             <td colspan="2" style="padding-left: 15px;">
+                <b>Choose your favorite mobile brand? </b>
+             </td>
+          </tr>
+          <tr>
+             <td>&nbsp;</td>
+             <td>&nbsp;</td>
+          </tr>
+          <tr>
+             <td colspan="2" style="padding-left: 15px;">
+                <div id="brands">
+                   <input id="brand1" name="brand" type="radio" checked="checked" value="Nokia" /> Nokia
+                   <input id="brand2" name="brand" type="radio" value="Sony" /> Sony 
+                   <input id="brand3" name="brand" type="radio" value="Motorola" /> Motorola
+                </div>
+             </td>
+          </tr>
+          <tr>
+             <td>&nbsp;</td>
+             <td>&nbsp;</td>
+          </tr>
+          <tr>
+             <td colspan="2" style="text-align: center;">
+                <input id="btnSubmit" type="button" value="Submit" />
+             </td>
+          </tr>
+       </table>
+    </div>
+
+
   </body>
 </html>
