@@ -13,6 +13,8 @@
 
       $(document).ready(function(){
         var $body = $('body');
+        var $tweetSection = $('section.tweets');
+
 //        $body.html('');
 
 
@@ -28,7 +30,7 @@
           lastIndex = streams.home.length - 1;
           while(index <= lastIndex){
             var tweet = streams.home[index];
-            var $tweet = $('<div></div>');
+            var $tweet = $('<article></article>');
             $tweet.text(': ' + tweet.message);
             $tweet.addClass("tweet");
 
@@ -38,7 +40,7 @@
             $user.addClass("user");
             $user.attr("data-user", tweet.user);
             $tweet.prepend($user);
-            $body.prepend($tweet);
+            $tweetSection.prepend($tweet);
 
             var $dateBlock = $('<div></div>');
             $dateBlock.addClass("date");
@@ -105,9 +107,7 @@
           <tr>
              <td colspan="2" style="padding-left: 15px;">
                 <div id="brands">
-                   <input id="brand1" name="brand" type="radio" checked="checked" value="Nokia" /> Nokia
-                   <input id="brand2" name="brand" type="radio" value="Sony" /> Sony 
-                   <input id="brand3" name="brand" type="radio" value="Motorola" /> Motorola
+                  <p>whatever</p>
                 </div>
              </td>
           </tr>
@@ -115,14 +115,10 @@
              <td>&nbsp;</td>
              <td>&nbsp;</td>
           </tr>
-          <tr>
-             <td colspan="2" style="text-align: center;">
-                <input id="btnSubmit" type="button" value="Submit" />
-             </td>
-          </tr>
        </table>
     </div>
 
+    <section class="tweets"></section>
 
   </body>
 </html>

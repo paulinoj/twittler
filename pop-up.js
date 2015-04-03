@@ -3,7 +3,7 @@
    $(document).ready(function ()
    {
 
-      $("body").on("click", "a", function (e)
+      $("section.tweets").on("click", "a", function (e)
       {
          alert($(this).text());
          ShowDialog(false);
