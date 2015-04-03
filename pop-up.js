@@ -5,8 +5,7 @@
 
       $("section.tweets").on("click", "a", function (e)
       {
-         alert($(this).text());
-         ShowDialog(false);
+         ShowDialog($(this).data("user"));
          e.preventDefault();
       });
 
@@ -16,11 +15,6 @@
          e.preventDefault();
       });
 
-      $("#btnShowModal").click(function (e)
-      {
-         ShowDialog(true);
-         e.preventDefault();
-      });
 
       $("#btnClose").click(function (e)
       {
@@ -38,22 +32,22 @@
 
    });
 
-   function ShowDialog(modal)
+   function ShowDialog(user)
    {
+        postUserTweets(user);
+//      $("div#dialog").html(user);
+ //     var newNode = ($'<div>HELLO</div>');
+//      $("#overlay").append(newNode);
+   
       $("#overlay").show();
       $("#dialog").fadeIn(300);
 
-      if (modal)
+      $("#overlay").click(function (e)
       {
-         $("#overlay").unbind("click");
-      }
-      else
-      {
-         $("#overlay").click(function (e)
-         {
-            HideDialog();
-         });
-      }
+         HideDialog();
+      });
+   
+
    }
 
    function HideDialog()
@@ -62,4 +56,41 @@
       $("#dialog").fadeOut(300);
    } 
         
+  function postUserTweets(user) {
+//    updateRelativeTimes();
+
+    var lastIndex = streams.users[user].length - 1;
+    var index = 0;
+    while(index <= lastIndex){
+      var tweet = streams.users[user][index];
+      var $tweet = $('<article></article>');
+      $tweet.text(': ' + tweet.message);
+      $tweet.addClass("tweet");
+
+      var $user = $('<a></a>');
+      $user.attr("href", "#");
+      $user.text('@' + tweet.user);
+      $user.addClass("user");
+      $user.attr("data-user", tweet.user);
+      $tweet.prepend($user);
+      $('div#dialog').prepend($tweet);
+
+      var $dateBlock = $('<div></div>');
+      $dateBlock.addClass("date");
+      $dateBlock.appendTo($tweet);
+
+      var $date = $('<p></p>');
+      var date = moment(tweet.created_at);
+      $date.text(date.format('MMM Do YYYY, h:mm:ss a'));
+      $date.appendTo($dateBlock);
+
+      var $relativeDate = $('<p></p>');
+      $relativeDate.text(date.fromNow());
+      $relativeDate.appendTo($dateBlock);
+
+      index += 1;
+
+    }
+  }
+
 
