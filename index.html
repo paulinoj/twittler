@@ -21,6 +21,7 @@
 
         postTweets();
         setInterval(postTweets, 10000);
+
         function postTweets() {
           updateRelativeTimes();
 
@@ -31,7 +32,8 @@
             $tweet.text(': ' + tweet.message);
             $tweet.addClass("tweet");
 
-            var $user = $('<span></span>');
+            var $user = $('<a></a>');
+            $user.attr("href", "#");
             $user.text('@' + tweet.user);
             $user.addClass("user");
             $user.attr("data-user", tweet.user);

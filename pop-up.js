@@ -2,6 +2,14 @@
 
    $(document).ready(function ()
    {
+
+      $("body").on("click", "a", function (e)
+      {
+         alert($(this).text());
+         ShowDialog(false);
+         e.preventDefault();
+      });
+
       $("#btnShowSimple").click(function (e)
       {
          ShowDialog(false);
