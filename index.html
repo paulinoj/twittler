@@ -51,6 +51,7 @@
 
         function listUsers() {
           var $followedSection = $('aside.followedSection');
+          $followedSection.html("");
           var $list = $('<ul></ul>');
           $followedSection.append($list);
 
@@ -166,7 +167,8 @@
 
         writeTweet(message);
 
-
+        listUsers();
+        checkForMoreTweets();
 
         return false;
         e.preventDefault();
