@@ -112,8 +112,10 @@ table {
 }
 
 aside {
+  margin-left: 20px;
 	float: left;
 	width: 30%;
+  padding: 1em;
 }
 
 article.tweet {
@@ -133,14 +135,15 @@ article.tweet {
 }
 
 .tweetSection > a {
-  width: 100%;
+  width: 100%%;
   display: inline-block;
   background-color: orange;
   text-align: center;
 
 }
+
 body {
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
 #dialog {
