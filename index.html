@@ -26,6 +26,29 @@
         postTweets();
         setInterval(postTweets, 10000);
 
+        listUsers();
+
+
+        function listUsers() {
+          var $userList = $('aside.userList');
+          for (var i in streams.users) {
+/*            var $user = $('<p></p>');
+            $user.text('@' + i);
+            $userList.append($user);
+*/            var $user = $('<a></a>');
+            $user.attr("href", "#");
+            $user.text('@' + i);
+            $user.addClass("user");
+            $user.attr("data-user", i);
+            $userList.append($user);
+
+
+
+          }
+        }
+
+
+
         function postTweets() {
           updateRelativeTimes();
 
@@ -84,10 +107,8 @@
     </header>
 
     <div class="group">
-      <aside>
-        <p>
+      <aside class="userList">
           Listing of followed users goes here!
-        </p>
       </aside>
 
       <section class="tweets"></section>
@@ -97,7 +118,7 @@
           Create tweets box goes here!
         </p>
       </aside>
-      
+
     </div>
 
     <div id="dialog" class="web_dialog">

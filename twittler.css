@@ -113,10 +113,21 @@ table {
 
 aside {
 	float: left;
+	width: 30%;
 }
 
+article.tweet {
+
+	color: #fff;
+	border-radius: 0.42857143rem;
+
+	background-color: #0087cc;
+
+
+}
 .tweets {
 	float: left;
+	width: 30%;
 }
 
 
