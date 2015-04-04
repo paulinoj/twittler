@@ -56,29 +56,38 @@
           while(index <= lastIndex){
             var tweet = streams.home[index];
             var $tweet = $('<article></article>');
+/*            
             $tweet.text(': ' + tweet.message);
             $tweet.addClass("tweet");
+*/
+            var $userLine = $('<p> - </p>');
 
             var $user = $('<a></a>');
             $user.attr("href", "#");
             $user.text('@' + tweet.user);
             $user.addClass("user");
             $user.attr("data-user", tweet.user);
-            $tweet.prepend($user);
+            $userLine.prepend($user);
+            $tweet.prepend($userLine);
             $tweetSection.prepend($tweet);
 
-            var $dateBlock = $('<div></div>');
-            $dateBlock.addClass("date");
-            $dateBlock.appendTo($tweet);
+            var $dateSpan = $('<span></span>');
+            $dateSpan.addClass("date");
+            $dateSpan.appendTo($userLine);
 
-            var $date = $('<p></p>');
             var date = moment(tweet.created_at);
-            $date.text(date.format('MMM Do YYYY, h:mm:ss a'));
-            $date.appendTo($dateBlock);
-
+            $dateSpan.text(date.format('MMM Do YYYY, h:mm:ss a'));
+            $dateSpan.appendTo($userLine);
+/*
             var $relativeDate = $('<p></p>');
             $relativeDate.text(date.fromNow());
             $relativeDate.appendTo($dateBlock);
+*/
+
+
+            var $textLine = $('<p></p>');
+            $textLine.text(tweet.message);
+            $tweet.append($textLine);
 
             index += 1;
 
