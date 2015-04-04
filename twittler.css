@@ -140,6 +140,10 @@ article.tweet {
 
 }
 
+#dialog {
+  overflow-y: scroll;
+}
+
 
 
 
