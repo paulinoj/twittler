@@ -50,19 +50,22 @@
 
 
         function listUsers() {
-          var $userList = $('aside.userList');
+          var $followedSection = $('aside.followedSection');
+          var $list = $('<ul></ul>');
+          $followedSection.append($list);
+
+
           for (var i in streams.users) {
-/*            var $user = $('<p></p>');
-            $user.text('@' + i);
-            $userList.append($user);
-*/            var $user = $('<a></a>');
+
+            var $listItem = $('<li></li>');
+            var $user = $('<a></a>');
+            $listItem.append($user);
             $user.attr("href", "#");
             $user.text('@' + i);
             $user.addClass("user");
             $user.attr("data-user", i);
-            $userList.append($user);
 
-
+            $list.append($listItem);
 
           }
         }
@@ -157,7 +160,7 @@
     </header>
 
     <div class="group">
-      <aside class="userList">
+      <aside class="followedSection">
           Listing of followed users goes here!
       </aside>
 

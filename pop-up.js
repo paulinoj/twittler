@@ -57,7 +57,8 @@
       $("#overlay").hide();
       $("#dialog").fadeOut(300);
    } 
-        
+
+  /*     
   function postUserTweets(user) {
 //    updateRelativeTimes();
 
@@ -94,5 +95,48 @@
 
     }
   }
+*/
+        function postUserTweets(user) {
 
+//          updateRelativeTimes();
+          $('div#dialog').html("");
+
+          var lastIndex = streams.users[user].length - 1;
+          var index = 0;
+          while(index <= lastIndex){
+            var tweet = streams.users[user][index];
+            var $tweet = $('<article></article>');
+
+            $tweet.addClass("tweet");
+
+            var $userLine = $('<p> - </p>');
+
+            var $user = $('<a></a>');
+            $user.attr("href", "#");
+            $user.text('@' + tweet.user);
+            $user.addClass("user");
+            $user.attr("data-user", tweet.user);
+            $userLine.prepend($user);
+            $tweet.prepend($userLine);
+//            $tweetSection.prepend($tweet);
+            $('div#dialog').prepend($tweet);
+            var $dateSpan = $('<span></span>');
+            $dateSpan.addClass("date");
+            $dateSpan.appendTo($userLine);
+
+            var date = moment(tweet.created_at);
+            $dateSpan.attr("data-date", date.format('MMM Do YYYY, h:mm:ss a'));
+            $dateSpan.text(date.fromNow());
+            $dateSpan.appendTo($userLine);
+
+
+            var $textLine = $('<p></p>');
+            $textLine.text(tweet.message);
+            $tweet.append($textLine);
+
+            index += 1;
+
+          }
+
+        }
 
