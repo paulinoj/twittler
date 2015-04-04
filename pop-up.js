@@ -3,7 +3,10 @@
    $(document).ready(function ()
    {
 
-
+      $("#sendTweet").submit(function(e) {
+        alert("John");
+        return false; //don't refresh page
+      });
             
       $("section.tweets").on("click", "a", function (e)
       {
@@ -36,6 +39,7 @@
 
    function ShowDialog(user)
    {
+
         $('body').css({overflow: 'hidden'});    
         postUserTweets(user);
 //      $("div#dialog").html(user);
