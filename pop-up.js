@@ -99,7 +99,7 @@
         function postUserTweets(user) {
 
 //          updateRelativeTimes();
-          $('div#dialog').html("");
+          $('#userTweets').html("");
 
           var lastIndex = streams.users[user].length - 1;
           var index = 0;
@@ -119,7 +119,7 @@
             $userLine.prepend($user);
             $tweet.prepend($userLine);
 //            $tweetSection.prepend($tweet);
-            $('div#dialog').prepend($tweet);
+            $('#userTweets').prepend($tweet);
             var $dateSpan = $('<span></span>');
             $dateSpan.addClass("date");
             $dateSpan.appendTo($userLine);
