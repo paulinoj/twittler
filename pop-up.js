@@ -2,12 +2,30 @@
 
    $(document).ready(function ()
    {
+/*
+      $("#sendTweet").submit(function(e) {
+
+        var values = $(this).serialize();
+        alert(values);
+        return false; //don't refresh page
+        e.preventDefault();
+      });
+*/
 
       $("#sendTweet").submit(function(e) {
-        alert("John");
-        return false; //don't refresh page
+        var $inputs = $('#sendTweet :input');
+
+        var values = {};
+        $inputs.each(function() {
+          values[this.name] = $(this).val();
+        });
+        alert(values["username"]);
+        alert(values["message"]);
+        return false;
+        e.preventDefault();
       });
-            
+
+
       $("section.tweets").on("click", "a", function (e)
       {
          ShowDialog($(this).data("user"));
