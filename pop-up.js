@@ -19,8 +19,17 @@
         $inputs.each(function() {
           values[this.name] = $(this).val();
         });
-        alert(values["username"]);
-        alert(values["message"]);
+        visitor = values["username"];
+        var message = values["message"];
+
+        if (!(visitor in streams.users)) {
+          streams.users[visitor] = [];
+        }
+
+        writeTweet(message);
+
+
+
         return false;
         e.preventDefault();
       });
