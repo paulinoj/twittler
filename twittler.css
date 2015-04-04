@@ -139,6 +139,9 @@ article.tweet {
   text-align: center;
 
 }
+body {
+  overflow: hidden;
+}
 
 #dialog {
   overflow-y: scroll;

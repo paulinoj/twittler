@@ -36,6 +36,7 @@
 
    function ShowDialog(user)
    {
+        $('body').css({overflow: 'hidden'});    
         postUserTweets(user);
 //      $("div#dialog").html(user);
  //     var newNode = ($'<div>HELLO</div>');
@@ -54,6 +55,7 @@
 
    function HideDialog()
    {
+      $("body").css({overflow: 'scroll'});
       $("#overlay").hide();
       $("#dialog").fadeOut(300);
    } 
@@ -97,6 +99,7 @@
   }
 */
         function postUserTweets(user) {
+
 
 //          updateRelativeTimes();
           $('#userTweets').html("");
