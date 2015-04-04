@@ -37,10 +37,12 @@
           if (index <= lastIndex) {
             var newTweets = lastIndex - index + 1;
             $('#updateTweets').text("View " + newTweets + " New Tweets");
+            $('#updateTweets').show();
           }
         }
 
         setInterval(checkForMoreTweets, 10000);
+        setInterval(updateRelativeTimes, 10000);
 
 //        setInterval(postTweets, 10000);
 
@@ -68,6 +70,7 @@
 
 
         function postTweets() {
+          $('#updateTweets').hide();
           updateRelativeTimes();
 
 //          lastIndex = streams.home.length - 1;
@@ -146,7 +149,7 @@
         Twittler
       </h1>
       <div class="buttonholder">
-        <a class="btn btn-alt" id="updateTweets" href="#">View new Tweets</a>
+
 <!--        <input type="button" id="updateTweets" value="View new tweets" /> -->
       </div>
 
@@ -158,7 +161,10 @@
           Listing of followed users goes here!
       </aside>
 
-      <section class="tweets"></section>
+      <div class="tweetSection">
+        <a class="btn btn-alt" id="updateTweets" href="#">View new Tweets</a>
+        <section class="tweets"></section>
+      </div>
 
       <aside>
         <p>

@@ -13,7 +13,6 @@
 
       $("#btnShowSimple").click(function (e)
       {
-         alert("whoa");
          ShowDialog(false);
          e.preventDefault();
       });

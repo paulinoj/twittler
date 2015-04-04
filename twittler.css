@@ -117,7 +117,8 @@ aside {
 }
 
 article.tweet {
-
+  padding: 1em;
+  width: 100%;
 	color: #fff;
 	border-radius: 0.42857143rem;
 
@@ -125,11 +126,19 @@ article.tweet {
 
 
 }
-.tweets {
+
+.tweetSection {
 	float: left;
 	width: 30%;
 }
 
+.tweetSection > a {
+  width: 100%;
+  display: inline-block;
+  background-color: orange;
+  text-align: center;
+
+}
 
 
 
