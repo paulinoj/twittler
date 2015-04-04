@@ -3,6 +3,8 @@
    $(document).ready(function ()
    {
 
+
+            
       $("section.tweets").on("click", "a", function (e)
       {
          ShowDialog($(this).data("user"));
@@ -11,6 +13,7 @@
 
       $("#btnShowSimple").click(function (e)
       {
+         alert("whoa");
          ShowDialog(false);
          e.preventDefault();
       });

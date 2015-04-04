@@ -14,6 +14,11 @@
     <script>
 
       $(document).ready(function(){
+
+
+
+
+
         var $body = $('body');
         var $tweetSection = $('section.tweets');
 
@@ -24,7 +29,7 @@
         var index = 0;
 
         postTweets();
-        setInterval(postTweets, 10000);
+//        setInterval(postTweets, 10000);
 
         listUsers();
 
@@ -92,6 +97,7 @@
             index += 1;
 
           }
+
         }
 /*
         function updateRelativeTimes() {
@@ -111,7 +117,12 @@
           });
         }
 
-
+        $("#updateTweets").click(function (e)
+        {
+           postTweets();
+           e.preventDefault();
+           
+        });
 
       });
 
@@ -122,8 +133,10 @@
         Twittler
       </h1>
       <div class="buttonholder">
-        <a class="btn btn-alt" href="#">View new Tweets</a>
+        <a class="btn btn-alt" id="updateTweets" href="#">View new Tweets</a>
+<!--        <input type="button" id="updateTweets" value="View new tweets" /> -->
       </div>
+
 
     </header>
 
