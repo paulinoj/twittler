@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Twittler</title>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
     <script src="moment.js"></script>
     <script src="pop-up.js"></script>   
     <link rel="stylesheet" type="text/css" href="twittler.css">
-    <link rel="stylesheet" type="text/css" href="pop-up.css">   
+    <link rel="stylesheet" type="text/css" href="pop-up.css">
+    <link href='http://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>   
   </head>
   <body>
     <script>
@@ -71,6 +73,37 @@
 
     </script>
 
+    <header>
+      <h1 id="logo">
+        Twittler
+      </h1>
+      <div class="buttonholder">
+        <a class="btn btn-alt" href="#">View new Tweets</a>
+      </div>
+
+    </header>
+
+    <div class="group">
+      <aside>
+        <p>
+          Listing of followed users goes here!
+        </p>
+      </aside>
+
+      <section class="tweets"></section>
+
+      <aside>
+        <p>
+          Create tweets box goes here!
+        </p>
+      </aside>
+      
+    </div>
+
+    <div id="dialog" class="web_dialog">
+    </div>
+
+
 
     <h3>JQuery Popup Dialogs</h3>
         
@@ -120,10 +153,7 @@
     </div>
 -->
 
-    <div id="dialog" class="web_dialog">
-    </div>
-    
-    <section class="tweets"></section>
+
 
   </body>
 </html>
