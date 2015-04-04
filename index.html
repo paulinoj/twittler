@@ -25,10 +25,23 @@
 //        $body.html('');
 
 
-        var lastIndex;
+        var lastIndex = streams.home.length - 1;
+  
         var index = 0;
 
         postTweets();
+
+
+        function checkForMoreTweets() {
+          lastIndex = streams.home.length - 1;
+          if (index <= lastIndex) {
+            var newTweets = lastIndex - index + 1;
+            $('#updateTweets').text("View " + newTweets + " New Tweets");
+          }
+        }
+
+        setInterval(checkForMoreTweets, 10000);
+
 //        setInterval(postTweets, 10000);
 
         listUsers();
@@ -57,7 +70,7 @@
         function postTweets() {
           updateRelativeTimes();
 
-          lastIndex = streams.home.length - 1;
+//          lastIndex = streams.home.length - 1;
           while(index <= lastIndex){
             var tweet = streams.home[index];
             var $tweet = $('<article></article>');
