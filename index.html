@@ -44,6 +44,8 @@
         setInterval(checkForMoreTweets, 10000);
         setInterval(updateRelativeTimes, 10000);
 
+
+
 //        setInterval(postTweets, 10000);
 
         listUsers();
@@ -145,7 +147,12 @@
         });
 
 
-
+        $("#updateUserTweets").click(function (e)
+        {
+           postUserTweets();
+           e.preventDefault();
+           
+        });
 
 
 
@@ -211,9 +218,9 @@
 
         $('body').css({overflow: 'hidden'});    
         postUserTweets(user);
-//      $("div#dialog").html(user);
- //     var newNode = ($'<div>HELLO</div>');
-//      $("#overlay").append(newNode);
+        setInterval(function (user) {
+          checkForMoreUserTweets(user);
+          }, 10000);
    
       $("#overlay").show();
       $("#dialog").fadeIn(300);
@@ -316,6 +323,16 @@
           }
 
         }
+/*
+          function checkForMoreUserTweets(user) {
+            lastIndex = streams.users[user]length - 1;
+            if (index <= lastIndex) {
+              var newTweets = lastIndex - index + 1;
+              $('#updateUserTweets').text("View " + newTweets + " New Tweets");
+              $('#updateUserTweets').show();
+            }
+          }        
+*/
 
 
       });
@@ -340,6 +357,22 @@
         <div class="tweetSection">
           <section class="tweets"></section>
         </div>
+
+        <div id="dialog" class="web_dialog">
+          <table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
+            <tr>
+               <td class="web_dialog_title">User Timeline</td>
+               <td class="web_dialog_title align_right">
+                  <a href="#" id="btnClose">Close</a>
+               </td>
+            </tr>
+          </table>
+          <a class="btn btn-alt" id="updateUserTweets" href="#">View new Tweets</a>
+          <section id="userTweets"></section>
+        </div>
+
+
+
       </div><!--
 
       --><aside id="sendTweetSection">
@@ -356,17 +389,6 @@
 
     </div>
 
-    <div id="dialog" class="web_dialog">
-      <table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
-        <tr>
-           <td class="web_dialog_title">User Timeline</td>
-           <td class="web_dialog_title align_right">
-              <a href="#" id="btnClose">Close</a>
-           </td>
-        </tr>
-      </table>
-      <section id="userTweets"></section>
-    </div>
 
         
     <div id="overlay" class="web_dialog_overlay"></div>

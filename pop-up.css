@@ -10,29 +10,34 @@
    margin: 0;
    padding: 0;
    background: #000000;
-   opacity: .15;
-   filter: alpha(opacity=15);
-   -moz-opacity: .15;
+
+/*   opacity: .15;
+*/
+   opacity: .60;
+   filter: alpha(opacity=60);
+   -moz-opacity: .60;
    z-index: 101;
    display: none;
 }
+
 .web_dialog
 {
    display: none;
    position: fixed;
-   width: 380px;
-   height: 200px; 
+   width: 600px;
+   height: 600px;
    top: 50%;
-   left: 50%;
+   left: 40%;
    margin-left: -190px;
    margin-top: -100px;
-   background-color: #ffffff;
+   background-color: #0087cc;
    border: 2px solid #336699;
    padding: 0px;
    z-index: 102;
-   font-family: Verdana;
-   font-size: 10pt;
 }
+
+
+
 .web_dialog_title
 {
    border-bottom: solid 2px #336699;
