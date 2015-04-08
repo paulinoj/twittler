@@ -180,28 +180,19 @@
          ShowDialog($(this).data("user"));
          e.preventDefault();
       });
-
+/*
       $("#btnShowSimple").click(function (e)
       {
          ShowDialog(false);
          e.preventDefault();
       });
-
+*/
 
       $("#btnClose").click(function (e)
       {
          HideDialog();
          e.preventDefault();
       });
-
-      $("#btnSubmit").click(function (e)
-      {
-         var brand = $("#brands input:radio:checked").val();
-         $("#output").html("<b>Your favorite mobile brand: </b>" + brand);
-         HideDialog();
-         e.preventDefault();
-      });
-
 
 
 
@@ -379,16 +370,6 @@
       <section id="userTweets"></section>
     </div>
 
-
-
-    <h3>JQuery Popup Dialogs</h3>
-        
-    <input type="button" id="btnShowSimple" value="Simple Dialog" />
-    <input type="button" id="btnShowModal" value="Modal Dialog" />
-        
-    <br /><br />       
-        
-    <div id="output"></div>
         
     <div id="overlay" class="web_dialog_overlay"></div>
 
