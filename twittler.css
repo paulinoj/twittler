@@ -67,6 +67,9 @@ table {
 }
 
 
+html {
+  font-family: Arial;
+}
 
 /*
   ========================================
@@ -102,11 +105,11 @@ table {
 
 
 #logo {
-    font-family: 'Londrina Shadow', cursive;	
+
 	font-size: 400%;
 	color: #fff;
 	text-align: center;
-	border-radius: 0.42857143rem;
+	border-radius: 7px;
 
 	background-color: #0087cc;
 
@@ -119,10 +122,9 @@ table {
 	float: center;
 	text-align: center;
 	font-weight: 600;
-	border-radius: 0.42857143rem;
 	background-color: #0087cc;
 	color: #fff;
-
+  border-radius: 7px;
 
 }
 
@@ -131,26 +133,32 @@ table {
 }
 
 aside {
-  margin-left: 20px;
-	float: left;
-	width: 30%;
+	width: 27%;
+  height: 400px;
   padding: 1em;
+  display: inline-block;
+  vertical-align: top;
+  background: yellow;
+  margin-top: 12px;
+  border-radius: 7px;
 }
 
 article.tweet {
   padding: 1em;
   width: 100%;
 	color: #fff;
-	border-radius: 0.42857143rem;
-
-	background-color: #0087cc;
-
+  border-bottom-style: solid;
+  border-bottom-color: white;
+  border-bottom-width: 1px;
 
 }
 
 .tweetSection {
-	float: left;
-	width: 30%;
+  margin-top: 12px;
+	width: 44%;
+  display: inline-block;
+  background-color: #0087cc;
+  border-radius: 7px;
 }
 
 .tweetSection > a {
@@ -170,5 +178,10 @@ body {
 }
 
 
+.followedSection {
+  margin-right: 12px;
+}
 
-
+#sendTweetSection {
+  margin-left: 12px;
+}
