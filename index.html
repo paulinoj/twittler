@@ -370,6 +370,13 @@
             }
           }        
 
+$('html').click(function() {$("#userMessage").height(100);});
+
+$('#userMessage').click(function(e) {
+    e.stopPropagation();
+    $(this).height(200);});
+ 
+
 
 
       });
@@ -418,16 +425,14 @@
         <input id="userName" type="text" name="username" value="Mickey">
         <br>
         Message:<br>
-        <input id="userMessage" type="text" name="message" value="Mouse">
+        <input id="userMessage" type="text" name="message" value="Mouse" maxlength=140>
         <br><br>
         <input type="submit" value="Submit">
         </form>
       </aside>
 
     </div>
-
-
-        
+       
     <div id="overlay" class="web_dialog_overlay"></div>
 
 
