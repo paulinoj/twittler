@@ -20,10 +20,12 @@
 
         var userPostsTimerID = 0;
 
+        var checkForMoreTweetsTimerID = 0;
+        var updateRelativeTimesTweetsSectionTimerID = 0;
+        var updateRelativeTimesUserTweetsSectionTimerID = 0;
+
         var $body = $('body');
         var $tweetSection = $('section.tweets');
-
-//        $body.html('');
 
 
         var lastIndex = streams.home.length - 1;
@@ -42,8 +44,8 @@
           }
         }
 
-        setInterval(checkForMoreTweets, 10000);
-        setInterval(updateRelativeTimes, 10000);
+        checkForMoreTweetsTimerID = setInterval(checkForMoreTweets, 10000);
+        updateRelativeTimesTweetsSectionTimerID = setInterval(function() {updateRelativeTimes(".tweets");}, 10000);
 
 
 
@@ -78,7 +80,7 @@
 
         function postTweets() {
           $('#updateTweets').hide();
-          updateRelativeTimes();
+          updateRelativeTimes(".tweets");
 
 //          lastIndex = streams.home.length - 1;
           while(index <= lastIndex){
@@ -133,8 +135,9 @@
 */
 
 
-        function updateRelativeTimes() {
-          $(".date").each(function() {
+        function updateRelativeTimes(section) {
+          section = section + " .date";
+          $(section).each(function() {
             var date = moment($(this).data("date"), 'MMM Do YYYY, h:mm:ss a');
             $(this).text(date.fromNow());
           });
@@ -198,7 +201,16 @@
       {
          HideDialog();         
          clearInterval(userPostsTimerID);
+         clearInterval(updateRelativeTimesUserTweetsSectionTimerID);
+
          e.preventDefault();
+
+        checkForMoreTweets();
+        updateRelativeTimes(".tweets");
+
+        checkForMoreTweetsTimerID = setInterval(checkForMoreTweets, 10000);
+        updateRelativeTimesTweetsSectionTimerID = setInterval(function() {updateRelativeTimes(".tweets");}, 10000);
+        
       });
 
 
@@ -216,11 +228,17 @@
    function ShowDialog(user)
    {
 
+        clearInterval(checkForMoreTweetsTimerID);
+        clearInterval(updateRelativeTimesTweetsSectionTimerID);
+
         $('#userTweets').html("");   
         userIndex = 0;
         lastUserIndex = streams.users[user].length - 1;
         $('body').css({overflow: 'hidden'});    
         postUserTweets(user);
+
+        updateRelativeTimesUserTweetsSectionTimerID = setInterval(function() {updateRelativeTimes("#userTweets");}, 10000);
+
         userPostsTimerID = setInterval(function () {
           checkForMoreUserTweets(user);
           }, 10000);
@@ -233,6 +251,14 @@
       {
          HideDialog();
          clearInterval(userPostsTimerID);
+         clearInterval(updateRelativeTimesUserTweetsSectionTimerID);
+        checkForMoreTweets();
+        updateRelativeTimes(".tweets");
+        checkForMoreTweetsTimerID = setInterval(checkForMoreTweets, 10000);
+        updateRelativeTimesTweetsSectionTimerID = setInterval(function() {updateRelativeTimes(".tweets");}, 10000);
+
+
+
       });
    
 
