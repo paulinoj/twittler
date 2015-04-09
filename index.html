@@ -169,15 +169,21 @@
         });
         visitor = values["username"];
         var message = values["message"];
+        if (visitor != "" && message != "") {
+          $("#sendTweet")[0].reset();
+          if (!(visitor in streams.users)) {
+            streams.users[visitor] = [];
+          }
 
-        if (!(visitor in streams.users)) {
-          streams.users[visitor] = [];
+          writeTweet(message);
+
+          listUsers();
+          lastIndex = streams.home.length - 1;
+
+//          checkForMoreTweets();
+          postTweets();
         }
 
-        writeTweet(message);
-
-        listUsers();
-        checkForMoreTweets();
 
         return false;
         e.preventDefault();
@@ -370,11 +376,11 @@
             }
           }        
 
-$('html').click(function() {$("#userMessage").height(100);});
+$('html').click(function() {$("#userMessage").css("height", "2em");});
 
 $('#userMessage').click(function(e) {
     e.stopPropagation();
-    $(this).height(200);});
+    $(this).css("height", 200);});
  
 
 
@@ -422,10 +428,10 @@ $('#userMessage').click(function(e) {
       --><aside id="sendTweetSection">
         <form id="sendTweet">
         User Name:<br>
-        <input id="userName" type="text" name="username" value="Mickey">
+        <input id="userName" type="text" name="username">
         <br>
         Message:<br>
-        <input id="userMessage" type="text" name="message" value="Mouse" maxlength=140>
+        <textarea id="userMessage" type="text" name="message" maxlength=140></textarea>
         <br><br>
         <input type="submit" value="Submit">
         </form>

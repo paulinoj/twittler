@@ -188,6 +188,15 @@ body {
 }
 
 #sendTweetSection {
+  padding-left: 30px;
+  padding-right: 30px;  
   margin-left: 12px;
+}
+
+input, textarea {
+  width: 100%;
+  height: 2em;
+  font-size: 100%;
+  padding: 10px;
 }
 
