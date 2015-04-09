@@ -15,9 +15,10 @@
 
       $(document).ready(function(){
 
+        var userIndex = 0;
+        var lastUserIndex;
 
-
-
+        var userPostsTimerID = 0;
 
         var $body = $('body');
         var $tweetSection = $('section.tweets');
@@ -149,12 +150,10 @@
 
         $("#updateUserTweets").click(function (e)
         {
-           postUserTweets();
+           postUserTweets($(this).attr("data-user"));
            e.preventDefault();
            
         });
-
-
 
 
 
@@ -197,7 +196,8 @@
 
       $("#btnClose").click(function (e)
       {
-         HideDialog();
+         HideDialog();         
+         clearInterval(userPostsTimerID);
          e.preventDefault();
       });
 
@@ -210,15 +210,18 @@
 
 
 
-
+  
 
 
    function ShowDialog(user)
    {
 
+        $('#userTweets').html("");   
+        userIndex = 0;
+        lastUserIndex = streams.users[user].length - 1;
         $('body').css({overflow: 'hidden'});    
         postUserTweets(user);
-        setInterval(function (user) {
+        userPostsTimerID = setInterval(function () {
           checkForMoreUserTweets(user);
           }, 10000);
    
@@ -229,6 +232,7 @@
       $("#overlay").click(function (e)
       {
          HideDialog();
+         clearInterval(userPostsTimerID);
       });
    
 
@@ -281,14 +285,16 @@
 */
         function postUserTweets(user) {
 
+          $('#updateUserTweets').hide();
 
 //          updateRelativeTimes();
-          $('#userTweets').html("");
+ //         $('#userTweets').html("");
 
-          var lastIndex = streams.users[user].length - 1;
-          var index = 0;
-          while(index <= lastIndex){
-            var tweet = streams.users[user][index];
+//          lastUserIndex = streams.users[user].length - 1;
+          while(userIndex <= lastUserIndex){
+
+            var tweet = streams.users[user][userIndex];
+
             var $tweet = $('<article></article>');
 
             $tweet.addClass("tweet");
@@ -296,6 +302,7 @@
             var $userLine = $('<p> - </p>');
 
             var $user = $('<a></a>');
+
             $user.attr("href", "#");
             $user.text('@' + tweet.user);
             $user.addClass("user");
@@ -303,6 +310,7 @@
             $userLine.prepend($user);
             $tweet.prepend($userLine);
 //            $tweetSection.prepend($tweet);
+
             $('#userTweets').prepend($tweet);
             var $dateSpan = $('<span></span>');
             $dateSpan.addClass("date");
@@ -318,21 +326,24 @@
             $textLine.text(tweet.message);
             $tweet.append($textLine);
 
-            index += 1;
+            userIndex += 1;
 
           }
 
         }
-/*
+
           function checkForMoreUserTweets(user) {
-            lastIndex = streams.users[user]length - 1;
-            if (index <= lastIndex) {
-              var newTweets = lastIndex - index + 1;
-              $('#updateUserTweets').text("View " + newTweets + " New Tweets");
+ //           alert("userIndex: " + userIndex + "   lastUserIndex: " + lastUserIndex);
+ //           alert(user);
+            lastUserIndex = streams.users[user].length - 1;
+            if (userIndex <= lastUserIndex) {
+              var newTweets = lastUserIndex - userIndex + 1;
+              $('#updateUserTweets').text("View " + newTweets + " New Tweets from " + user);
               $('#updateUserTweets').show();
+              $('#updateUserTweets').attr("data-user", user);
             }
           }        
-*/
+
 
 
       });
