@@ -107,12 +107,14 @@ html {
 #logo {
 
 	font-size: 400%;
-	color: #fff;
+	color: #fff8dc;
 	text-align: center;
 	border-radius: 7px;
   margin-top: 7px;
-	background-color: #0087cc;
-
+/*	background-color: #0087cc;
+*/background: rgba(255, 255, 255, 0.25);
+  height: 1.5em;
+  padding-top: .25em;
 }
 
 .btn {
@@ -123,8 +125,8 @@ html {
 	border: 0;
 	text-align: center;
 	font-weight: 600;
-	background-color: orange;
-	color: #fff;
+	background-color: #fff8dc;
+	color: black;
   border-radius: 7px;
   padding: 1em;
 
@@ -139,7 +141,9 @@ aside {
   height: 400px;
   display: inline-block;
   vertical-align: top;
-  background: yellow;
+/*  background: rgba(255, 197, 144, 0.5);
+ background: rgba(0, 0, 255, 0.25);
+*/background: rgba(255, 255, 255, 0.25);
   margin-top: 12px;
   border-radius: 7px;
 }
@@ -162,7 +166,9 @@ article.tweet {
 
 .tweetSection {
 	width: 100%;
-  background-color: #0087cc;
+
+/*  background-color: #0087cc;
+*/background-color: #ffa611;
   border-radius: 7px;
 }
 
@@ -202,8 +208,14 @@ input, textarea {
   height: 2em;
   font-size: 100%;
   padding: 10px;
+  background-color: #fff8dc;
 }
 
 html {
-  background-image: url("background.jpg");
+  background-image: url("sky_texture.jpg");
+ /*  background-repeat : repeat-y;
+   background-repeat : repeat;
+*/   background-size: 150%;
+  background-attachment: fixed;
+*/
 }
