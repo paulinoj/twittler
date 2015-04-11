@@ -55,7 +55,7 @@
 
 
         function listUsers() {
-          var $followedSection = $('aside.followedSection');
+          var $followedSection = $('div.followedUsers');
           $followedSection.html("");
           var $list = $('<ul></ul>');
           $followedSection.append($list);
@@ -195,6 +195,12 @@
          ShowDialog($(this).data("user"));
          e.preventDefault();
       });
+
+      $("div.followedUsers").on("click", "a", function (e)
+      {
+         ShowDialog($(this).data("user"));
+         e.preventDefault();
+      });      
 /*
       $("#btnShowSimple").click(function (e)
       {
@@ -399,7 +405,9 @@ $('#userMessage').click(function(e) {
 
     <div class="container">
       <aside class="followedSection">
-          Listing of followed users goes here!
+        FOLLOWING:
+        <div class="followedUsers">
+        </div>
       </aside><!--
 
       --><div class="middleSection">

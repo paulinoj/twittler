@@ -152,7 +152,7 @@ aside {
 article.tweet {
   padding: 1em;
   width: 100%;
-	color: #fff;
+	color: black;
   border-bottom-style: solid;
   border-bottom-color: white;
   border-bottom-width: 1px;
@@ -162,15 +162,17 @@ article.tweet {
 .middleSection{
   margin-top: 1%;
   width: 44%;
-  display: inline-block; 
+  display: inline-block;
+
 }
 
 .tweetSection {
 	width: 100%;
-
-/*  background-color: #0087cc;
-*/background-color: #ffb455;
+  background-color: #ffb455;
   border-radius: 7px;
+  max-height: 900px;
+  overflow-y: scroll;  
+
 }
 
 .tweetSection > a {
@@ -214,9 +216,7 @@ input, textarea {
 
 html {
   background-image: url("sky_texture.jpg");
- /*  background-repeat : repeat-y;
-   background-repeat : repeat;
-*/   background-size: 150%;
+  background-size: 150%;
   background-attachment: fixed;
 */
 }
