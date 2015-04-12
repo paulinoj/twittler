@@ -17,19 +17,13 @@
 
         var userIndex = 0;
         var lastUserIndex;
-
         var userPostsTimerID = 0;
-
         var checkForMoreTweetsTimerID = 0;
         var updateRelativeTimesTweetsSectionTimerID = 0;
         var updateRelativeTimesUserTweetsSectionTimerID = 0;
-
         var $body = $('body');
         var $tweetSection = $('section.tweets');
-
-
-        var lastIndex = streams.home.length - 1;
-  
+        var lastIndex = streams.home.length - 1;  
         var index = 0;
 
         postTweets();
@@ -245,10 +239,6 @@
 
           $('#updateUserTweets').hide();
 
-//          updateRelativeTimes();
- //         $('#userTweets').html("");
-
-//          lastUserIndex = streams.users[user].length - 1;
           while(userIndex <= lastUserIndex){
 
             var tweet = streams.users[user][userIndex];
@@ -267,8 +257,6 @@
             $user.attr("data-user", tweet.user);
             $userLine.prepend($user);
             $tweet.prepend($userLine);
-//            $tweetSection.prepend($tweet);
-
             $('#userTweets').prepend($tweet);
             var $dateSpan = $('<span></span>');
             $dateSpan.addClass("date");
@@ -291,8 +279,6 @@
         }
 
           function checkForMoreUserTweets(user) {
- //           alert("userIndex: " + userIndex + "   lastUserIndex: " + lastUserIndex);
- //           alert(user);
             lastUserIndex = streams.users[user].length - 1;
             if (userIndex <= lastUserIndex) {
               var newTweets = lastUserIndex - userIndex + 1;

@@ -148,10 +148,6 @@ aside {
   height: 400px;
   display: inline-block;
   vertical-align: top;
-/*  background: rgba(255, 197, 144, 0.5);
- background: rgba(0, 0, 255, 0.25);
-background: rgba(255, 255, 255, 0.25);
-*/
   background-color: rgba(255,255,255,0.75);  
   margin-top: 12px;
   border-radius: 7px;
@@ -180,19 +176,8 @@ article.tweet {
   border-radius: 7px;
   max-height: 900px;
   overflow-y: scroll;
-/*  background-color: rgba(255,255,255,0.75);  
-*/
-
 }
-/*
-.tweetSection > a {
-  width: 100%;
-  background-color: #ffbc68;
-  text-align: center;
-  text-decoration: none;
 
-}
-*/
 body {
   overflow-y: scroll;
 }
