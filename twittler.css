@@ -155,6 +155,7 @@ background: rgba(255, 255, 255, 0.25);
   background-color: rgba(255,255,255,0.75);  
   margin-top: 12px;
   border-radius: 7px;
+  overflow-y: scroll;
 }
 
 article.tweet {
@@ -164,7 +165,7 @@ article.tweet {
   border-bottom-style: solid;
   border-bottom-color: black;
   border-bottom-width: 1px;
-
+  background-color: rgba(255,255,255,0.75); 
 }
 
 .middleSection{
@@ -179,7 +180,8 @@ article.tweet {
   border-radius: 7px;
   max-height: 900px;
   overflow-y: scroll;
-  background-color: rgba(255,255,255,0.75);  
+/*  background-color: rgba(255,255,255,0.75);  
+*/
 
 }
 /*
@@ -230,6 +232,10 @@ html {
   background-size: 150%;
   background-attachment: fixed;
 
+}
+
+.followedUsers li {
+  margin-top: .5em;
 }
 
 .user{
