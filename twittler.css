@@ -162,7 +162,7 @@ article.tweet {
   width: 100%;
 	color: black;
   border-bottom-style: solid;
-  border-bottom-color: white;
+  border-bottom-color: black;
   border-bottom-width: 1px;
 
 }
@@ -205,7 +205,8 @@ body {
   margin-top: 1%;
   padding-left: 1em;
   padding-top: 1em;
-  font-family: 'TheBattleCont', serif;   
+  font-family: 'TheBattleCont', serif;
+  font-size: 2em;   
 }
 
 #sendTweetSection {

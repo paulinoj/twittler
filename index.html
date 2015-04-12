@@ -39,7 +39,7 @@
           lastIndex = streams.home.length - 1;
           if (index <= lastIndex) {
             var newTweets = lastIndex - index + 1;
-            $('#updateTweets').text("View " + newTweets + " New Tweets");
+            $('#updateTweets').text("View " + newTweets + " New Tags");
             $('#updateTweets').show();
           }
         }
@@ -379,7 +379,7 @@
             lastUserIndex = streams.users[user].length - 1;
             if (userIndex <= lastUserIndex) {
               var newTweets = lastUserIndex - userIndex + 1;
-              $('#updateUserTweets').text("View " + newTweets + " New Tweets from " + user);
+              $('#updateUserTweets').text("View " + newTweets + " New Tags from " + user);
               $('#updateUserTweets').show();
               $('#updateUserTweets').attr("data-user", user);
             }
