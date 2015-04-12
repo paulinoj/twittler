@@ -293,43 +293,42 @@
 
     </script>
 
+    <!--
+
+    HEADER SECTION: LOGO APPEARS HERE
+
+    -->
+
     <header class="container">
       <h1 id="logo">
         Scribbler
       </h1>
-
-
     </header>
 
     <div class="container">
+
+      <!--
+
+      FOLLOWEDSECTION:  LIST OF USERS BEING FOLLOWED APPEARS HERE
+
+      -->
+
       <aside class="followedSection">
         FOLLOWING:
         <div class="followedUsers">
         </div>
       </aside><!--
 
+      MIDDLE SECTION (ALL TWEETS APPEAR HERE)
+
       --><div class="middleSection">
         <a class="btn btn-alt" id="updateTweets" href="#">View New Tags</a>
         <div class="tweetSection">
           <section class="tweets"></section>
         </div>
-
-        <div id="dialog" class="web_dialog">
-          <table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
-            <tr>
-               <td class="web_dialog_title">User Timeline</td>
-               <td class="web_dialog_title align_right">
-                  <a href="#" id="btnClose">Close</a>
-               </td>
-            </tr>
-          </table>
-          <a class="btn btn-alt" id="updateUserTweets" href="#">View New Tags</a>
-
-          <section id="userTweets"></section>
-          
-        </div>
-
       </div><!--
+
+      SENDTWEETSECTION (FORM FOR SENDING TWEETS APPEARS HERE)
 
       --><aside id="sendTweetSection">
         <form id="sendTweet">
@@ -343,10 +342,38 @@
         </form>
       </aside>
 
-    </div>
-       
-    <div id="overlay" class="web_dialog_overlay"></div>
 
+
+      <!--
+
+      FOLLOWEDSECTION:  LIST OF USERS BEING FOLLOWED APPEARS HERE
+
+      -->
+
+      <div id="dialog" class="web_dialog">
+        <table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
+          <tr>
+             <td class="web_dialog_title">User Timeline</td>
+             <td class="web_dialog_title align_right">
+                <a href="#" id="btnClose">Close</a>
+             </td>
+          </tr>
+        </table>
+        <a class="btn btn-alt" id="updateUserTweets" href="#">View New Tags</a>
+        <section id="userTweets"></section>        
+      </div>
+
+ 
+      <!--
+
+      OVERLAY DIV:  OPAQUE OVERLAY WHEN POPUP DIV IS ACTIVE
+
+      -->      
+
+      <div id="overlay" class="web_dialog_overlay"></div>
+
+    </div>
 
   </body>
+  
 </html>
