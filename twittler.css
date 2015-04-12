@@ -68,7 +68,8 @@ table {
 
 
 html {
-  font-family: Arial;
+ font-family: Arial;
+
 }
 
 /*
@@ -97,7 +98,10 @@ html {
 
 
 
-
+@font-face {
+  font-family: 'TheBattleCont';
+  src: url('TheBattleCont.ttf') format('truetype');
+}
 
 
 
@@ -106,14 +110,16 @@ html {
 
 #logo {
 
-	font-size: 400%;
+	font-size: 600%;
+  font-family: 'TheBattleCont', serif; 
   letter-spacing: 0.5em;
-	color: #fff8dc;
+  /*
+	color: #fff8dc;*/
+  color: black;
 	text-align: center;
 	border-radius: 7px;
   margin-top: 7px;
-/*	background-color: #0087cc;
-*/background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.25);
   height: 1.5em;
   padding-top: .25em;
 }
@@ -144,7 +150,9 @@ aside {
   vertical-align: top;
 /*  background: rgba(255, 197, 144, 0.5);
  background: rgba(0, 0, 255, 0.25);
-*/background: rgba(255, 255, 255, 0.25);
+background: rgba(255, 255, 255, 0.25);
+*/
+  background-color: rgba(255,255,255,0.75);  
   margin-top: 12px;
   border-radius: 7px;
 }
@@ -168,20 +176,21 @@ article.tweet {
 
 .tweetSection {
 	width: 100%;
-  background-color: #ffb455;
   border-radius: 7px;
   max-height: 900px;
-  overflow-y: scroll;  
+  overflow-y: scroll;
+  background-color: rgba(255,255,255,0.75);  
 
 }
-
+/*
 .tweetSection > a {
   width: 100%;
   background-color: #ffbc68;
   text-align: center;
+  text-decoration: none;
 
 }
-
+*/
 body {
   overflow-y: scroll;
 }
@@ -196,6 +205,7 @@ body {
   margin-top: 1%;
   padding-left: 1em;
   padding-top: 1em;
+  font-family: 'TheBattleCont', serif;   
 }
 
 #sendTweetSection {
@@ -215,8 +225,12 @@ input, textarea {
 }
 
 html {
-  background-image: url("sky_texture.jpg");
+  background-image: url("whitebrick.jpg");
   background-size: 150%;
   background-attachment: fixed;
-*/
+
+}
+
+.user{
+  text-decoration: none;
 }

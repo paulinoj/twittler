@@ -67,7 +67,9 @@
             var $user = $('<a></a>');
             $listItem.append($user);
             $user.attr("href", "#");
-            $user.text('@' + i);
+
+//            $user.text('@' + i);
+            $user.text(i);
             $user.addClass("user");
             $user.attr("data-user", i);
 
@@ -147,6 +149,7 @@
         {
            postTweets();
            e.preventDefault();
+           $(".tweetSection").scrollTop(0);           
            
         });
 
@@ -397,7 +400,7 @@ $('#userMessage').click(function(e) {
 
     <header class="container">
       <h1 id="logo">
-        Twittler
+        Scribbler
       </h1>
 
 
@@ -411,7 +414,7 @@ $('#userMessage').click(function(e) {
       </aside><!--
 
       --><div class="middleSection">
-        <a class="btn btn-alt" id="updateTweets" href="#">View new Tweets</a>
+        <a class="btn btn-alt" id="updateTweets" href="#">View New Tags</a>
         <div class="tweetSection">
           <section class="tweets"></section>
         </div>
@@ -425,7 +428,7 @@ $('#userMessage').click(function(e) {
                </td>
             </tr>
           </table>
-          <a class="btn btn-alt" id="updateUserTweets" href="#">View new Tweets</a>
+          <a class="btn btn-alt" id="updateUserTweets" href="#">View New Tags</a>
           <section id="userTweets"></section>
         </div>
 
