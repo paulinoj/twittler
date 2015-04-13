@@ -27,8 +27,15 @@
 
 
         function postTweets() {
+
+          // Hide update tweets button
+
           $('#updateTweets').hide();
+
           updateRelativeTimes(".tweets");
+
+          // Value of lastIndex is constantly updated in checkForMoreTweets function
+          // Value of Index is set last time postTweets was called
 
           while(index <= lastIndex){
             var tweet = streams.home[index];
@@ -97,6 +104,58 @@
         }
 
 
+
+        // ShowDialog reveals popup Div containing a specific user's tweets
+
+        function ShowDialog(user)
+        {
+
+          // Stop all activity on main "page" while popup div is active
+
+          clearInterval(checkForMoreTweetsTimerID);
+          clearInterval(updateRelativeTimesTweetsSectionTimerID);
+
+          $('#userTweets').html("");   
+          userIndex = 0;
+          lastUserIndex = streams.users[user].length - 1;
+          $('body').css({overflow: 'hidden'});    
+          postUserTweets(user);
+
+          updateRelativeTimesUserTweetsSectionTimerID = setInterval(function() {updateRelativeTimes("#userTweets");}, 10000);
+
+          userPostsTimerID = setInterval(function () {
+            checkForMoreUserTweets(user);
+            }, 10000);
+     
+          $("#overlay").show();
+          $("#dialog").fadeIn(300);
+          $("#dialog").scrollTop(0);
+
+          $("#overlay").click(function (e)
+          {
+            HideDialog();
+
+            // When exiting popup div, stop activity on popup div
+
+            clearInterval(userPostsTimerID);
+            clearInterval(updateRelativeTimesUserTweetsSectionTimerID);
+
+            // When exiting popup div, restore activity on main "page"
+
+            checkForMoreTweets();
+            updateRelativeTimes(".tweets");
+            checkForMoreTweetsTimerID = setInterval(checkForMoreTweets, 10000);
+            updateRelativeTimesTweetsSectionTimerID = setInterval(function() {updateRelativeTimes(".tweets");}, 10000);
+          });   
+        }
+
+        function HideDialog()
+        {
+          $("body").css({overflow: 'scroll'});
+          $("#overlay").hide();
+          $("#dialog").fadeOut(300);
+        } 
+
         function postUserTweets(user) {
 
           $('#updateUserTweets').hide();
@@ -136,65 +195,29 @@
             userIndex += 1;
 
           }
-
         }
 
         function checkForMoreUserTweets(user) {
           lastUserIndex = streams.users[user].length - 1;
           if (userIndex <= lastUserIndex) {
             var newTweets = lastUserIndex - userIndex + 1;
+
+            // Show button that allows user to update user tweets
+            // User name is saved as data attribute of button
+
             $('#updateUserTweets').text("View " + newTweets + " New Tags from " + user);
             $('#updateUserTweets').show();
             $('#updateUserTweets').attr("data-user", user);
           }
         }        
 
-
-        function ShowDialog(user)
-        {
-
-          clearInterval(checkForMoreTweetsTimerID);
-          clearInterval(updateRelativeTimesTweetsSectionTimerID);
-
-          $('#userTweets').html("");   
-          userIndex = 0;
-          lastUserIndex = streams.users[user].length - 1;
-          $('body').css({overflow: 'hidden'});    
-          postUserTweets(user);
-
-          updateRelativeTimesUserTweetsSectionTimerID = setInterval(function() {updateRelativeTimes("#userTweets");}, 10000);
-
-          userPostsTimerID = setInterval(function () {
-            checkForMoreUserTweets(user);
-            }, 10000);
-     
-          $("#overlay").show();
-          $("#dialog").fadeIn(300);
-          $("#dialog").scrollTop(0);
-
-          $("#overlay").click(function (e)
-          {
-            HideDialog();
-            clearInterval(userPostsTimerID);
-            clearInterval(updateRelativeTimesUserTweetsSectionTimerID);
-            checkForMoreTweets();
-            updateRelativeTimes(".tweets");
-            checkForMoreTweetsTimerID = setInterval(checkForMoreTweets, 10000);
-            updateRelativeTimesTweetsSectionTimerID = setInterval(function() {updateRelativeTimes(".tweets");}, 10000);
-          });   
-        }
-
-        function HideDialog()
-        {
-          $("body").css({overflow: 'scroll'});
-          $("#overlay").hide();
-          $("#dialog").fadeOut(300);
-        } 
-
         postTweets();
         checkForMoreTweetsTimerID = setInterval(checkForMoreTweets, 10000);
         updateRelativeTimesTweetsSectionTimerID = setInterval(function() {updateRelativeTimes(".tweets");}, 10000);
         listUsers();
+
+
+        // Button on main "page" that allopws update of all tweets
 
         $("#updateTweets").click(function (e)
         {
@@ -203,6 +226,7 @@
            $(".tweetSection").scrollTop(0);                      
         });
 
+        // Button in popup div that allows update of specific user's tweets
 
         $("#updateUserTweets").click(function (e)
         {
@@ -211,6 +235,7 @@
            
         });
 
+        // Button in form for submtting new messages
 
         $("#sendTweet").submit(function(e) {
           var $inputs = $('#sendTweet :input');
@@ -238,11 +263,15 @@
         });
 
 
+        // If click on user name in a posted tweet, show popup div with that user's timeline
+
         $("section.tweets").on("click", "a", function (e)
         {
            ShowDialog($(this).data("user"));
            e.preventDefault();
         });
+
+        // If click on user name in followed list, show popup div with that user's timeline
 
         $("div.followedUsers").on("click", "a", function (e)
         {
@@ -250,12 +279,20 @@
            e.preventDefault();
         });      
 
+        // Button for closing popup div
+
         $("#btnClose").click(function (e)
         {
           HideDialog();         
+
+          // When exiting popup div, stop activity on popup div         
+
           clearInterval(userPostsTimerID);
           clearInterval(updateRelativeTimesUserTweetsSectionTimerID);
           e.preventDefault();
+
+          // When exiting popup div, restore activity on main "page"
+
           checkForMoreTweets();
           updateRelativeTimes(".tweets");
           checkForMoreTweetsTimerID = setInterval(checkForMoreTweets, 10000);
@@ -263,6 +300,7 @@
           
         });
 
+        // The following two functions expand size of message input box when clicked on or when it gains focus
 
         $('#userMessage').click(function(e) {
             e.stopPropagation();
@@ -274,6 +312,8 @@
             $(this).css("height", 200);
         });       
 
+
+        // Restore smaller size of message input box when click outside of it
 
         $('html').click(function() {$("#userMessage").css("height", "2em");});
  
