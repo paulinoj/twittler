@@ -48,25 +48,6 @@ table {
 
 
 
-/*
-  ========================================
-  Clearfix
-  ========================================
-*/
-.group:before,
-.group:after {
-  content: "";
-  display: table;
-}
-.group:after {
-  clear: both;
-}
-.group {
-  clear: both;
-  *zoom: 1;
-}
-
-
 html {
  font-family: Arial;
 
@@ -91,8 +72,9 @@ html {
 .container {
   margin: 0 auto;
   padding-left: 1%;
-  padding-right: 1%px;
+  padding-right: 1%;
   max-width: 1254px;
+
 }
 
 
@@ -116,13 +98,7 @@ html {
 
 	font-size: 1000%;
   font-family: 'TheBattleCont', serif;
-/* font-family: 'Whoa!', serif; 
-*/
   color: rgba(76, 0, 153, 0.8);
-/*  letter-spacing: 0.5em;
-  
-	color: #fff8dc;
-  color: black;*/
   text-align: center;
 	border-radius: 7px;
   margin-top: 7px;
@@ -181,7 +157,7 @@ article.tweet {
 .tweetSection {
 	width: 100%;
   border-radius: 7px;
-  max-height: 900px;
+  max-height: 850px;
   overflow-y: scroll;
 }
 
@@ -232,4 +208,13 @@ html {
 
 .user{
   text-decoration: none;
+}
+
+#submit{
+  padding: 0;
+}
+
+#userMessage, #userName {
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
