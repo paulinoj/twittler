@@ -206,3 +206,7 @@ html {
   margin-top: 3px;
   margin-bottom: 3px;
 }
+
+a {
+  color: rgba(76, 0, 153);
+}
